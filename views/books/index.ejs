@@ -1,0 +1,10 @@
+<h2>All authors </h2>
+<form action="/author" method="GET">
+    <input type="text" name="name" value="<%=searchOption%>">
+    <button type="submit" > Search </button>
+</form>
+<br>
+<% books.forEach((book)=>{%>
+    <div><img src="<%= book.bookCover %>" height="150" width="100">
+        </div>
+<%})%>
