@@ -24,13 +24,17 @@ var BookSchema = new Schema({
     required: true
   },
   coverImage: {
-    type: String,
+    type: Buffer,
     required: true
+  },
+  coverImageType:{
+    type:String,
+    required:true
   }
 });
 BookSchema.virtual("bookCover").get(function (){
-  if (this.coverImage != null) {
-    return path.join('/',BookCoverBasePath,this.coverImage)
+  if (this.coverImage != null && this.coverImageType !=null) {
+    return `data:${this.coverImageType};charset =utf-8;base64,${this.coverImage.toString('base64')}`
   }
 });
 module.exports = mongoose.model("Book", BookSchema);
