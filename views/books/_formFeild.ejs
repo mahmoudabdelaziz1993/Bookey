@@ -1,13 +1,13 @@
 <div><label>Title</label><input type="text" name="title" placeholder="Enter Author Name here ..." value="<%=book.title%>"></div>
 <div><label>Page count</label><input type="number" min="1" name="pageCount" value="<%=book.pageCount%>" ></div>
-<div><label>Publish Date</label><input type="date" min="1" name="publishDate" value="<%=book.publishDate == null ? '':book.publishDate.toISOSrting().split('t')[0]%>" ></div>
+<div><label>Publish Date</label><input type="date" min="1" name="publishDate" value="<%=book.publishDate == null ? '':book.publishDate.toISOString().split('T')[0]%>" ></div>
 <div><label>Author</label>
     <select name="author">
         <% authors.forEach((author)=>{%>
             <option value="<%=author.id%>" label="<%=author.author%>">
         <%})%>
     </select></div>
-<div><label>Description</label><textarea name="description"cols="30" rows="10" value="<%=book.description%>"></textarea>
+<div><label>Description</label><textarea name="description"cols="30" rows="10"><%= book.description %></textarea>
 </div>
 <div><label>Cover</label><input type="file" name="cover" class="filepond" ></div>
 

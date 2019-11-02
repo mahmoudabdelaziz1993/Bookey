@@ -4,7 +4,8 @@ var Schema = mongoose.Schema;
 const BookCoverBasePath = "uplaods/BookCover";
 var BookSchema = new Schema({
   author: {
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref:"Author",
     required: true
   },
   title: {
